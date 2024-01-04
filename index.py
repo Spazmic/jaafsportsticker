@@ -73,7 +73,7 @@ class SportsTickerApp:
         # Update game info
         team1_info_label.config(text=f"{teams[0]} {scores[0]}" if status['type']['state'] != 'pre' else teams[0])
         team2_info_label.config(text=f"{teams[1]} {scores[1]}" if status['type']['state'] != 'pre' else teams[1])
-        additional_info = f"Period: {status['period']}, Time: {status['displayClock']}" if status['type']['state'] != 'pre' else f"Starts at {status['type']['shortDetail']}"
+        additional_info = f"Période: {status['period']}, Temps: {status['displayClock']}" if status['type']['state'] != 'pre' else f"Commence à {status['type']['shortDetail']}"
         additional_info_label.config(text=additional_info)
 
     def get_todays_nhl_scores(self):
@@ -97,8 +97,8 @@ class SportsTickerApp:
         Timer(10, self.update_scores).start()
 
     def update_time(self):
-        current_time = datetime.now(pytz.timezone('America/New_York')).strftime('%I:%M:%S %p %Z on %b %d, %Y')
-        self.time_label.config(text=f"Il est {current_time}")
+        current_time = datetime.now(pytz.timezone('America/New_York')).strftime('%I:%M:%S %p  %b %d, %Y')
+        self.time_label.config(text=f"{current_time}")
         Timer(1, self.update_time).start()
 
 def main():
